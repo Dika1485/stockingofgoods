@@ -32,7 +32,10 @@ export class GoodsPage implements OnInit {
   stock:any;
 
   ngOnInit() {
-    this.getGoods();
+    if (this.authService.isLoggedIn()) {
+      this.getGoods();
+    }
+    else this.router.navigate(['/login']);
   }
   getGoods() {
     console.log(this.authService.getId());

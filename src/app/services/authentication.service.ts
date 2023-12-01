@@ -72,6 +72,7 @@ export class AuthenticationService {
     this.username = username;
     this.id = id;
     this.token = token;
+    this.isAuthenticated=true;
     this.router.navigate(['/goods']);
   }
   getId(){
