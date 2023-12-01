@@ -4,7 +4,7 @@ export const routes: Routes = [
   {
     path: '',
     // redirectTo: 'folder/inbox',
-    redirectTo: 'goods',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   // {
