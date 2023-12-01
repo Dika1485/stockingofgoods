@@ -35,11 +35,13 @@
 
 import { Injectable } from '@angular/core';
 import { Preferences } from '@capacitor/preferences';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
+  constructor(private router: Router){}
   private isAuthenticated = false;
   private token = 'mytoken';
   private username = 'myname';
@@ -66,9 +68,11 @@ export class AuthenticationService {
   }
 
   set(username: string, token: string, id: string){
+  // location.reload();
     this.username = username;
     this.id = id;
     this.token = token;
+    this.router.navigate(['/goods']);
   }
   getId(){
     return this.id;

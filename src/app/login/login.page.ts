@@ -91,13 +91,12 @@ login() {
   // }
 }
 setdata=async (data:any) => {
-  await this.authService.set(data['data']['username'],data['data']['token'],data['data']['id']);
+  this.authService.set(data['data']['username'],data['data']['token'],data['data']['id']);
   this.username = '';
   this.password = '';
   Preferences.set({ key: TOKEN_KEY, value: data['data']['token'] });
   Preferences.set({ key: USERNAME, value: data['data']['username'] });
   Preferences.set({ key: ID, value: data['data']['id'] });
-  // location.reload();
   this.router.navigate(['/goods']);
 }
 

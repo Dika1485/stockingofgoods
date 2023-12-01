@@ -16,7 +16,7 @@ export class ApiService {
     return this.http.put(this.apiURL() + '/' + endpoint, data);
   }
   read(id: any, endpoint: string): Observable<any> {
-    return this.http.get(this.apiURL() + '/' + endpoint + '' + id);
+    return this.http.get(this.apiURL() + '/' + endpoint + '?id=' + id);
   }
   delete(id: any, endpoint: string) {
     console.log(id);
