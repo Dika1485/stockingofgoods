@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 01, 2023 at 05:42 PM
+-- Generation Time: Dec 01, 2023 at 06:06 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -40,7 +40,11 @@ CREATE TABLE `goods` (
 
 INSERT INTO `goods` (`id`, `item`, `stock`, `user_id`) VALUES
 (1, 'Coffee', 6, 1),
-(2, 'tea', 10, 1);
+(2, 'tea', 10, 1),
+(4, 'sriping', 9, 3),
+(5, 'limau gedang', 23, 3),
+(6, 'limau mandarin', 123, 3),
+(7, 'iwak', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -86,7 +90,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `goods`
 --
 ALTER TABLE `goods`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user`
