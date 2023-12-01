@@ -1,0 +1,93 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+  <ion-buttons slot="start">
+  <ion-menu-button></ion-menu-button>
+  </ion-buttons>
+  <ion-title>
+    Stock of Goods
+  </ion-title>
+  <ion-button slot="end" (click)="logout()">
+    Logout
+  </ion-button>
+  </ion-toolbar>
+  </ion-header>
+<ion-content [fullscreen]="true">
+  <ion-button (click)="open_modal_create(true)" expand="block">New Stock</ion-button>
+  <ion-card *ngFor="let item of dataGoods">
+<ion-item>
+<ion-label>{{item.item}}
+<p>{{item.stock}}</p>
+</ion-label>
+<ion-button expand="block" (click)="open_modal_update(true,item.id)">Edit</ion-button>
+<ion-button color="danger" slot="end" (click)="deleteGoods(item.id)">Delete</ion-button>
+</ion-item>
+</ion-card>
+<ion-card>
+  </ion-card>
+  <!-- ini untuk modal tambah -->
+  <ion-modal [isOpen]="modal_create">
+  <ng-template>
+  <ion-header>
+  <ion-toolbar>
+  <ion-buttons slot="start">
+  <ion-button (click)="cancel()">Cancel</ion-button>
+  </ion-buttons>
+  <ion-title>New Goods</ion-title>
+  </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+  <ion-item>
+  <ion-input label="item" labelPlacement="floating" required [(ngModel)]="item"
+  placeholder="Insert Item..." type="text">
+  </ion-input>
+  </ion-item>
+  <ion-item>
+  <ion-input label='stock' labelPlacement="floating" required [(ngModel)]="stock"
+  placeholder="Insert Stock..." type="number">
+  </ion-input>
+  </ion-item>
+  <ion-row>
+  <ion-col>
+  <ion-button type="button" (click)="createGoods()" color="primary" shape="full" expand="block">Insert Data
+  </ion-button>
+  </ion-col>
+  </ion-row>
+  </ion-content>
+  </ng-template>
+  </ion-modal>
+<ion-modal [isOpen]="modal_update">
+  <ng-template>
+  <ion-header>
+  <ion-toolbar>
+  <ion-buttons slot="start">
+  <ion-button (click)="cancel()">Cancel</ion-button>
+  </ion-buttons>
+  <ion-title>Edit Stock</ion-title>
+  </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+  <ion-item>
+  <ion-input label="item" labelPlacement="floating" required disabled
+  [(ngModel)]="item"
+  placeholder="Insert Item..." type="text">
+  </ion-input>
+  </ion-item>
+  <ion-item>
+  <ion-input label='stock' labelPlacement="floating" required
+  [(ngModel)]="stock"
+  placeholder="Insert Stock..." type="tel">
+  </ion-input>
+  </ion-item>
+  <ion-input required [(ngModel)]="id" type="hidden">
+  </ion-input>
+  <ion-row>
+  <ion-col>
+  <ion-button type="button" (click)="updateGoods()" color="primary" shape="full"
+  expand="block">Edit Stock
+  </ion-button>
+  </ion-col>
+  </ion-row>
+  </ion-content>
+  </ng-template>
+  </ion-modal>
+</ion-content>
